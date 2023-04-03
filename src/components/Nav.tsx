@@ -1,13 +1,29 @@
 import { useState } from "react";
 import { Currency, Logo } from "../assets";
 import { Link, useLocation } from "react-router-dom";
-import { AiOutlineCaretDown } from "react-icons/ai";
+import { AiOutlineCaretDown, AiOutlineMenu } from "react-icons/ai";
+import { motion } from "framer-motion";
+import {FaTimes} from "react-icons/fa"
 interface Link {
   label: string;
   link: string;
 }
 export default function Nav() {
-  const [active, setActive] = useState<number>(0);
+  // const [active, setActive] = useState<number>(0);
+
+  const [showMenu,setShowMenu] = useState<boolean>(false)
+
+  const variants = {
+    open: { 
+      opacity: 1,
+       x:0
+      },
+    closed: {
+      opacity: 0,
+      x:"-100%",
+      transition: { delay: 0.5, duration: 0.5 },
+    },
+  };
 
   const location = useLocation();
 
@@ -32,9 +48,9 @@ export default function Nav() {
     },
   ];
 
-  const handleACtive = (index: number) => {
-    setActive(index);
-  };
+  // const handleACtive = (index: number) => {
+  //   setActive(index);
+  // };
   return (
     <nav className="py-5 z-20 bg-black-100 w-full flex fixed top-0 left-0">
       <div className="w-[95%] mx-auto flex justify-between">
@@ -52,7 +68,6 @@ export default function Nav() {
                     ? "text-blue-100 transition-all"
                     : "text-white-secondary"
                 }`}
-                onClick={() => handleACtive(index)}
               >
                 <Link to={item.link}>{item.label}</Link>
               </li>
@@ -72,7 +87,30 @@ export default function Nav() {
           </div>
           <AiOutlineCaretDown size="1rem" color="#787A8D" />
         </div>
+
+        {showMenu ? <FaTimes color="#fff" size={30} onClick={()=>setShowMenu(!showMenu)}/> : <AiOutlineMenu color="#fff" size={30} onClick={()=>setShowMenu(!showMenu)}/> }
       </div>
+
+      <motion.div initial={false}
+        animate={showMenu ? "open" : "closed"}
+        variants={variants} className="fixed flex flex-col p-5 w-[80%] text-white bg-[#0d1018] shadow-md h-full top-0 left-0">
+        {
+          links.map((item,index)=>(
+            <Link to={item.link} key={index} className="mt-8 text-white-primary text-lg">
+              {item.label}
+            </Link>
+          ))
+        }
+        <button className="py-3 mt-8 w-28 bg-blue-100 text-white-primary rounded-xl">
+        Sign Up
+        </button>
+
+        <div>
+        <div className="mt-8">
+          <img src={Currency} alt="" />
+        </div>
+        </div>
+      </motion.div>
     </nav>
   );
 }
