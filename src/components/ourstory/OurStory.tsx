@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import { mission } from "../../assets";
+import { motion } from "framer-motion";
 
 interface storyProps {
   header: string;
@@ -11,7 +12,7 @@ interface storyProps {
   noImages?: boolean;
   header2?: string;
   text2?: string;
-  reversedGradient?:boolean
+  reversedGradient?: boolean;
 }
 export default function OurStory({
   header,
@@ -23,15 +24,48 @@ export default function OurStory({
   noImages,
   header2,
   text2,
-  reversedGradient
+  reversedGradient,
 }: storyProps) {
+  const scrollRef = useRef(null);
+
+  const slideInRight = {
+    hide: {
+      opacity: 0,
+      x: "-95%",
+    },
+    show: {
+      opacity: 1,
+      x: "0%",
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
+
+  const slideInLeft = {
+    hide: {
+      opacity: 0,
+      x: "25%",
+    },
+    show: {
+      opacity: 1,
+      x: "0%",
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
+
   return (
     <div
       className={`${
         reversed ? "flex-row-reverse text-right" : "flex-row"
       } flex justify-between items-start w-[80%] mx-auto mt-24 lg:mt-[7rem] relative flex-wrap`}
     >
-      <div className="text-white-primary w-[28rem]">
+      <motion.div
+        variants={slideInRight}
+        viewport={{ once: true }}
+        initial="hide"
+        whileInView="show"
+        ref={scrollRef}
+        className="text-white-primary w-[28rem]"
+      >
         <h2 className="text-md lg:text-start text-center font-semibold leading-6 text-blue-100">
           {header}
         </h2>
@@ -42,7 +76,9 @@ export default function OurStory({
         >
           {semiHeader}
         </h2>
-        <p className="mt-6 text-md lg:text-left text-center font-normal">{text}</p>
+        <p className="mt-6 text-md lg:text-left text-center font-normal">
+          {text}
+        </p>
 
         {years && (
           <div className="flex justify-center lg:justify-start items-center gap-6 mt-6 mx-auto lg:mx-0">
@@ -65,8 +101,15 @@ export default function OurStory({
             </div>
           </div>
         )}
-      </div>
-      <div className="h-[25rem] mt-12 lg:mt-0 w-[25rem] mx-auto lg:mx-0">
+      </motion.div>
+      <motion.div
+        variants={slideInLeft}
+        viewport={{ once: true }}
+        initial="hide"
+        whileInView="show"
+        ref={scrollRef}
+        className="h-[25rem] mt-12 lg:mt-0 w-[25rem] mx-auto lg:mx-0"
+      >
         {noImages ? (
           <>
             <p className="text-md lg:text-start text-center font-semibold leading-6 text-blue-100">
@@ -79,9 +122,13 @@ export default function OurStory({
         ) : (
           <img src={img} className="w-full h-full object-cover" alt="" />
         )}
-      </div>
+      </motion.div>
 
-      <div className={`${reversedGradient ? "right-0" : "left-0"} w-[15.25rem] h-[15.6rem] absolute top-0 bg-blue-100 blur-[256px]`}></div>
+      <div
+        className={`${
+          reversedGradient ? "right-0" : "left-0"
+        } w-full lg:w-[15.25rem] h-[15.6rem] absolute top-0 bg-blue-100 blur-[256px]`}
+      ></div>
     </div>
   );
 }

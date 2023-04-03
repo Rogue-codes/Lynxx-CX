@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { direction } from "../../assets";
 import { AiOutlineCaretDown } from "react-icons/ai";
+import { motion } from "framer-motion";
 
 type accordionProps = {
   header: string;
@@ -70,15 +71,57 @@ export default function Faq() {
     // if index is already active
     active === index ? setActive(null) : setActive(index);
   };
+
+  const scrollRef = useRef(null);
+  const slideUp = {
+    hide: {
+      y: "20%",
+      opacity: 0,
+    },
+    show: {
+      y: "0%",
+      opacity: 1,
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
+
+  const appear = {
+    hide: {
+      opacity: 0,
+    },
+    show: {
+      opacity: 1,
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
   return (
     <div className="w-full px-5 mt-28 mb-40">
-      <h2 className="mb-8 lg:mb-[8.5rem] text-center font-bold text-white-primary text-2xl lg:text-5xl leading-10 lg:leading-[64px]">
+      <motion.h2
+        variants={appear}
+        viewport={{ once: true }}
+        initial="hide"
+        whileInView="show"
+        ref={scrollRef}
+        className="mb-8 lg:mb-[8.5rem] text-center font-bold text-white-primary text-2xl lg:text-5xl leading-10 lg:leading-[64px]"
+      >
         Frequently Asked Questions
-      </h2>
+      </motion.h2>
       <>
         {accordion.map((data, index) => (
-          <div className={`${index !== active ? "h-14" : "lg:h-[15.25rem]"} bg-[#21263666] transition-all overflow-hidden p-4 mb-5`}>
-            <div className="flex justify-between cursor-pointer" onClick={()=>toggleAccordion(index)}>
+          <motion.div
+            variants={slideUp}
+            viewport={{ once: true }}
+            initial="hide"
+            whileInView="show"
+            ref={scrollRef}
+            className={`${
+              index !== active ? "h-14" : "lg:h-[15.25rem]"
+            } bg-[#21263666] transition-all overflow-hidden p-4 mb-5`}
+          >
+            <div
+              className="flex justify-between cursor-pointer"
+              onClick={() => toggleAccordion(index)}
+            >
               <h2 className="text-white-primary text-[18px] leading-6 font-normal mb-6">
                 What is Lynx CX?
               </h2>
@@ -87,7 +130,6 @@ export default function Faq() {
                 size="1rem"
                 cursor="pointer"
                 color="#2C9BF6"
-                
               />
             </div>
             <div className="flex gap-4">
@@ -104,7 +146,7 @@ export default function Faq() {
                 economy.
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </>
     </div>

@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, {useRef} from "react";
+import {motion} from "framer-motion"
 interface careers {
   title: string;
   desc: string;
@@ -48,19 +48,46 @@ export default function Values() {
       details: "Locations",
     },
   ];
+
+  const scrollRef = useRef(null);
+
+  const slideUp = {
+    hide: {
+      opacity: 0,
+      y: "-95%",
+    },
+    show: {
+      opacity: 1,
+      y: "0%",
+      transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
+    },
+  };
   return (
     <div className="w-full py-12 relative">
-      <h2 className="text-center text-white-primary text-2xl lg:text-5xl mt-[5rem] leading-[64px] font-bold">
+      <motion.h2 variants={slideUp}
+        viewport={{ once: true }}
+        initial="hide"
+        whileInView="show"
+        ref={scrollRef} className="text-center text-white-primary text-2xl lg:text-5xl mt-[5rem] leading-[64px] font-bold">
         Our Values
-      </h2>
-      <p className="text-md font-normal mt-8 lg:mt-20 text-white-secondary leading-6 text-center">
+      </motion.h2>
+      <motion.p variants={slideUp}
+        viewport={{ once: true }}
+        initial="hide"
+        whileInView="show"
+        ref={scrollRef} className="text-md font-normal mt-8 lg:mt-20 text-white-secondary leading-6 text-center">
         Lynx CX Core Values guide our behavior, decisions, and action, enabling
         unified collaboration across our diverse, international teams.
-      </p>
+      </motion.p>
 
       <div className="flex justify-start gap-8 mt-20 items-center flex-wrap">
         {data.map((item, index) => (
-          <div
+          <motion.div
+          variants={slideInRight}
+        viewport={{ once: true }}
+        initial="hide"
+        whileInView="show"
+        ref={scrollRef}
             className="w-[22rem] mb-16 h-[18rem] p-5 bg-[#212636] mx-auto lg:mx-0"
             key={index}
           >
@@ -73,7 +100,7 @@ export default function Values() {
               </p>
               <p className="mt-3 text-white-secondary mb-20">{item.desc}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 

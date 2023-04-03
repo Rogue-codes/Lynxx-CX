@@ -62,9 +62,9 @@ export default function Jobs() {
           </main>
 
 
-          <div className="w-[21.25rem] h-[19.6rem] absolute left-0 top-0 bg-blue-100 blur-[462px]"></div>
+          <div className="w-full lg:w-[21.25rem] h-[19.6rem] absolute left-0 top-0 bg-blue-100 blur-[462px]"></div>
 
-          <div className="w-[21.25rem] h-[29.6rem] absolute right-0 bottom-0 bg-blue-100 blur-[562px]"></div>
+          <div className="w-full lg:w-[21.25rem] h-[29.6rem] absolute right-0 bottom-0 bg-blue-100 blur-[562px]"></div>
         </div>
       </div>
     </div>
