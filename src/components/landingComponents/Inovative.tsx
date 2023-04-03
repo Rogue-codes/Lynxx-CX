@@ -21,6 +21,18 @@ export default function Inovative({heading,img,buySell,smText}:inovativeProps) {
       transition: { delay: 1, duration: 1, type: "spring", stiffness: 120 },
     },
   };
+
+  const scaleIn = {
+    hide: {
+      opacity: 0,
+      scale: 0.5,
+    },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: { delay: 2, duration: 6, type: "spring", stiffness: 120 },
+    },
+  };
   return (
     <div className='lg:mt-40 mt-20 w-full lg:px-5 relative'>
         <motion.h2 variants={slideUp}
@@ -41,9 +53,13 @@ export default function Inovative({heading,img,buySell,smText}:inovativeProps) {
             <img src={img} alt="" />
         </motion.div>
 
-        <div className={`${buySell ? "right-0" : "left-0" } w-full lg:w-[21.25rem] h-[19.6rem] absolute -bottom-64  bg-blue-100 blur-[762px]`}>
+        <motion.div variants={scaleIn}
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}   className={`${buySell ? "right-0" : "left-0" } w-full lg:w-[21.25rem] h-[19.6rem] absolute -bottom-64  bg-blue-100 blur-[762px]`}>
 
-        </div>
+        </motion.div>
     </div>
   )
 }

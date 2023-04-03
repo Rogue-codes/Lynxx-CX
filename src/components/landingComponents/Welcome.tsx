@@ -30,6 +30,18 @@ export default function Welcome() {
     },
   };
 
+  const scaleIn = {
+    hide: {
+      opacity: 0,
+      scale: 0.5,
+    },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: { delay: 2, duration: 6, type: "spring", stiffness: 120 },
+    },
+  };
+
   return (
     <div className="flex flex-col lg:flex-row items-center justify-between relative">
       <motion.div
@@ -59,9 +71,21 @@ export default function Welcome() {
           <SignUpButton content={"Sign up"} />
         </div>
 
-        <div className="lg:w-[21.25rem] h-[19.6rem] absolute left-0 top-0 bg-blue-100 blur-[462px]"></div>
+        <motion.div
+          variants={scaleIn}
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef}
+          className="lg:w-[21.25rem] h-[19.6rem] absolute left-0 top-0 bg-blue-100 blur-[462px]"
+        ></motion.div>
 
-        <div className="lg:w-[21.25rem] h-[29.6rem] absolute right-0 bottom-0 bg-blue-100 blur-[562px]"></div>
+        <motion.div
+          variants={scaleIn}
+          viewport={{ once: true }}
+          initial="hide"
+          whileInView="show"
+          ref={scrollRef} className="lg:w-[21.25rem] h-[29.6rem] absolute right-0 bottom-0 bg-blue-100 blur-[562px]"></motion.div>
 
         <div className="lg:h-[24.6rem] absolute left-[28.9rem] top-[14rem]">
           <img src={line} alt="" />
