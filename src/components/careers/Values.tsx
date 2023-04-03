@@ -1,5 +1,5 @@
-import React, {useRef} from "react";
-import {motion} from "framer-motion"
+import React, { useRef } from "react";
+import { motion } from "framer-motion";
 interface careers {
   title: string;
   desc: string;
@@ -54,7 +54,7 @@ export default function Values() {
   const slideUp = {
     hide: {
       opacity: 0,
-      y: "-95%",
+      y: "5%",
     },
     show: {
       opacity: 1,
@@ -64,18 +64,24 @@ export default function Values() {
   };
   return (
     <div className="w-full py-12 relative">
-      <motion.h2 variants={slideUp}
+      <motion.h2
+        variants={slideUp}
         viewport={{ once: true }}
         initial="hide"
         whileInView="show"
-        ref={scrollRef} className="text-center text-white-primary text-2xl lg:text-5xl mt-[5rem] leading-[64px] font-bold">
+        ref={scrollRef}
+        className="text-center text-white-primary text-2xl lg:text-5xl mt-[5rem] leading-[64px] font-bold"
+      >
         Our Values
       </motion.h2>
-      <motion.p variants={slideUp}
+      <motion.p
+        variants={slideUp}
         viewport={{ once: true }}
         initial="hide"
         whileInView="show"
-        ref={scrollRef} className="text-md font-normal mt-8 lg:mt-20 text-white-secondary leading-6 text-center">
+        ref={scrollRef}
+        className="text-md font-normal mt-8 lg:mt-20 text-white-secondary leading-6 text-center"
+      >
         Lynx CX Core Values guide our behavior, decisions, and action, enabling
         unified collaboration across our diverse, international teams.
       </motion.p>
@@ -83,11 +89,11 @@ export default function Values() {
       <div className="flex justify-start gap-8 mt-20 items-center flex-wrap">
         {data.map((item, index) => (
           <motion.div
-          variants={slideUp}
-        viewport={{ once: true }}
-        initial="hide"
-        whileInView="show"
-        ref={scrollRef}
+            variants={slideUp}
+            viewport={{ once: true }}
+            initial="hide"
+            whileInView="show"
+            ref={scrollRef}
             className="w-[22rem] mb-16 h-[18rem] p-5 bg-[#212636] mx-auto lg:mx-0"
             key={index}
           >
@@ -104,7 +110,14 @@ export default function Values() {
         ))}
       </div>
 
-      <div className="flex flex-wrap w-full items-center py-8 rounded-2xl bg-blue-100">
+      <motion.div
+        variants={slideUp}
+        viewport={{ once: true }}
+        initial="hide"
+        whileInView="show"
+        ref={scrollRef}
+        className="flex flex-col lg:flex-row w-full items-center py-8 rounded-2xl bg-blue-100"
+      >
         {desc.map((item, index) => (
           <div
             key={index}
@@ -120,7 +133,7 @@ export default function Values() {
             </p>
           </div>
         ))}
-      </div>
+      </motion.div>
 
       <div className="w-[21.25rem] h-[19.6rem] absolute left-0 top-0 bg-blue-100 blur-[462px]"></div>
 
