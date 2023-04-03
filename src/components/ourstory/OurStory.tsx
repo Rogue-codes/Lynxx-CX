@@ -45,7 +45,7 @@ export default function OurStory({
         <p className="mt-6 text-md lg:text-left text-center font-normal">{text}</p>
 
         {years && (
-          <div className="flex justify-start items-center gap-6 mt-6">
+          <div className="flex justify-center lg:justify-start items-center gap-6 mt-6 mx-auto lg:mx-0">
             <div>
               <p className="text-xl lg:text-3xl text-blue-100 font-semibold leading-10">
                 3 Years
@@ -66,7 +66,7 @@ export default function OurStory({
           </div>
         )}
       </div>
-      <div className="h-[25rem] mt-12 lg:mt-0 w-[25rem]">
+      <div className="h-[25rem] mt-12 lg:mt-0 w-[25rem] mx-auto lg:mx-0">
         {noImages ? (
           <>
             <p className="text-md lg:text-start text-center font-semibold leading-6 text-blue-100">

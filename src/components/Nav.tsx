@@ -96,7 +96,7 @@ export default function Nav() {
         variants={variants} className="fixed flex flex-col p-5 w-[80%] text-white bg-[#0d1018] shadow-md h-full top-0 left-0">
         {
           links.map((item,index)=>(
-            <Link to={item.link} key={index} className="mt-8 text-white-primary text-lg">
+            <Link to={item.link} key={index} className="mt-8 text-white-primary text-lg" onClick={()=>setShowMenu(false)}>
               {item.label}
             </Link>
           ))

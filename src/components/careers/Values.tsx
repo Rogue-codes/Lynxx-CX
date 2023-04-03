@@ -61,7 +61,7 @@ export default function Values() {
       <div className="flex justify-start gap-8 mt-20 items-center flex-wrap">
         {data.map((item, index) => (
           <div
-            className="w-[22rem] mb-16 h-[18rem] p-5 bg-[#212636]"
+            className="w-[22rem] mb-16 h-[18rem] p-5 bg-[#212636] mx-auto lg:mx-0"
             key={index}
           >
             <div className="border-b-2 border-blue-100">
