@@ -49,7 +49,7 @@ export default function WhyWorkHere() {
           initial="hide"
           whileInView="show"
           ref={scrollRef}
-          className="my-10 px-5 lg:px-14 py-10 bg-[#212636] rounded-2xl w-[28rem] border-2 border-blue-100"
+          className="my-10 px-5 lg:px-14 py-10 bg-[#212636] rounded-2xl lg:w-[28rem] border-2 border-blue-100"
         >
           <div className="w-20 h-20 border relative flex justify-center items-center rounded-full">
             <img src={money} alt="" />
@@ -77,7 +77,7 @@ export default function WhyWorkHere() {
           initial="hide"
           whileInView="show"
           ref={scrollRef}
-          className="my-10 px-5 lg:px-14 py-10 bg-[#212636] rounded-2xl w-[28rem] border-2 border-blue-100"
+          className="my-10 px-5 lg:px-14 py-10 bg-[#212636] rounded-2xl lg:w-[28rem] border-2 border-blue-100"
         >
           <div className="w-20 h-20 border relative flex justify-center items-center rounded-full">
             <img src={money} alt="" />
@@ -106,7 +106,7 @@ export default function WhyWorkHere() {
           initial="hide"
           whileInView="show"
           ref={scrollRef}
-          className="my-10 px-5 lg:px-14 py-10 bg-[#212636] rounded-2xl w-[28rem] border-2 border-blue-100"
+          className="my-10 px-5 lg:px-14 py-10 bg-[#212636] rounded-2xl lg:w-[28rem] border-2 border-blue-100"
         >
           <div className="w-20 h-20 border relative flex justify-center items-center rounded-full">
             <img src={money} alt="" />
