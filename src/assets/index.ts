@@ -22,7 +22,7 @@ import fb from "./fb.svg";
 import tele from "./tele.svg";
 import linkedin from "./linkedin.svg";
 import direction from "./direction.svg";
-import instagram from "./instagram.svg";
+import instagram from "./Instagram.svg";
 import twitter from "./twitter.svg";
 import mesenger from "./mesennger.svg";
 import tiktok from "./tiktok.svg";
