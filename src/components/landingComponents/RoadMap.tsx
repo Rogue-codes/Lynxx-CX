@@ -1,10 +1,10 @@
 import React from "react";
-import { roadmap } from "../../../assets";
+import { roadmap } from "../../assets";
 
 export default function RoadMap() {
   return (
-    <div className="w-full px-5 mt-28 relative">
-      <h2 className="text-white-primary text-5xl leading-[64px] font-bold text-center mb-28">
+    <div className="w-full px-5 mt-8 lg:mt-28 relative">
+      <h2 className="text-white-primary text-2xl lg:text-5xl leading-[64px] font-bold text-center mb-8 mb-28">
         Our Roadmap
       </h2>
       <div className="bg-[#212636] rounded-[20px]">

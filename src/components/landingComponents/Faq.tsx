@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { direction } from "../../../assets";
+import { direction } from "../../assets";
 import { AiOutlineCaretDown } from "react-icons/ai";
 
 type accordionProps = {
@@ -72,12 +72,12 @@ export default function Faq() {
   };
   return (
     <div className="w-full px-5 mt-28 mb-40">
-      <h2 className="mb-[8.5rem] text-center font-bold text-white-primary text-5xl leading-[64px]">
+      <h2 className="mb-8 lg:mb-[8.5rem] text-center font-bold text-white-primary text-2xl lg:text-5xl leading-10 lg:leading-[64px]">
         Frequently Asked Questions
       </h2>
       <>
         {accordion.map((data, index) => (
-          <div className={`${index !== active ? "h-14" : "h-[15.25rem]"} bg-[#21263666] transition-all overflow-hidden p-4 mb-5`}>
+          <div className={`${index !== active ? "h-14" : "lg:h-[15.25rem]"} bg-[#21263666] transition-all overflow-hidden p-4 mb-5`}>
             <div className="flex justify-between cursor-pointer" onClick={()=>toggleAccordion(index)}>
               <h2 className="text-white-primary text-[18px] leading-6 font-normal mb-6">
                 What is Lynx CX?

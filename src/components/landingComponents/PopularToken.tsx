@@ -28,10 +28,10 @@ export default function PopularToken() {
     <div>
         {
             isLoading ? (<p>Loading...</p>) : 
-            (<div className='flex justify-between items-center'>
+            (<div className='flex justify-between items-center flex-wrap'>
                 {
                     coins.map((coin)=>(
-                        <div key={coin.id} className="w-[19%] mt-[4.5rem] relative z-10 bg-[#000] p-4 flex justify-between items-baseline">
+                        <div key={coin.id} className="w-full lg:w-[19%] mt-3 lg:mt-[4.5rem] relative z-10 bg-[#000] p-4 flex justify-between items-baseline">
                             <div className='flex items-center gap-2'>
                                 <img src={coin.image} width={30} alt="" />
 

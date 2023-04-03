@@ -7,6 +7,7 @@
 body{
   font-family: 'Poppins', sans-serif;
   background-color: black;
+  overflow-x: hidden;
 }
 .t40-container {
   @apply  px-5 m-auto md:px-5;    

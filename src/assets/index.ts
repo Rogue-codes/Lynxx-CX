@@ -28,6 +28,16 @@ import mesenger from "./mesennger.svg";
 import tiktok from "./tiktok.svg";
 import Facebook from "./Facebook.svg";
 import Youtube from "./Youtube.svg";
+import mission from "./mission.svg";
+import vision from "./vision.svg";
+import years from "./years.svg";
+import vector from "./vector.svg";
+import calling from "./calling.svg";
+import mail from "./mail.svg";
+import monitor from "./monitor.svg";
+import briefcase from "./briefcase.svg";
+import work from "./work.svg";
+import money from "./money.svg";
 
 export {
   Logo,
@@ -59,5 +69,15 @@ export {
   twitter,
   mesenger,
   Facebook,
-  tiktok
+  tiktok,
+  mission,
+  vision,
+  years,
+  calling,
+  vector,
+  mail,
+  monitor,
+  briefcase,
+  work,
+  money
 };

@@ -1,5 +1,5 @@
 import React from 'react'
-import { archive, moneycoin, profit, shield, transfer } from '../../../assets'
+import { archive, moneycoin, profit, shield, transfer } from '../../assets'
 
 type perks = {
     img: string,
@@ -44,12 +44,12 @@ export default function Perks() {
     <div className='w-full flex mt-16 px-5 relative justify-between items-center flex-wrap'>
         {
             data.map((data,index)=>(
-                <div key={index} className="w-[32%] px-5 rounded-[20px] my-2 h-[20rem] bg-[rgba(33,38,54,0.4)] hover:border-2 border-blue-100 transition-all" >
+                <div key={index} className="w-full lg:w-[32%] px-5 rounded-[20px] my-2 h-[20rem] bg-[rgba(33,38,54,0.4)] hover:border-2 border-blue-100 transition-all" >
                     <div className='w-20 mx-auto relative bg-black-100 mt-10 h-20 flex justify-center items-center rounded-full border'>
                         <img className='relative z-10' src={data.img} alt="" />
                         <div className='w-8 h-8 bg-blue-100 absolute left-[30%] top-[30%] blur-[20px]'></div>
                     </div>
-                    <h2 className='text-xl leading-8 text-center text-white-primary mt-10'>{data.title}</h2>
+                    <h2 className='text-sm lg:text-xl leading-8 text-center text-white-primary mt-4 lg:mt-10'>{data.title}</h2>
                     <p className='text-md leading-6 text-center text-white-secondary mt-4'>{data.description}</p>
                 </div>
             ))

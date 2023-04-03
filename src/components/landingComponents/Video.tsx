@@ -1,9 +1,9 @@
 import React from 'react'
-import { videoImg } from '../../../assets'
+import { videoImg } from '../../assets'
 
 export default function Video() {
   return (
-    <div className='w-full p-5 mt-40 relative'>
+    <div className='w-full p-5 mt-20 lg:mt-40 relative'>
         <div>
             <img src={videoImg} alt="" />
         </div>
