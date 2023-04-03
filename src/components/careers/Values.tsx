@@ -83,7 +83,7 @@ export default function Values() {
       <div className="flex justify-start gap-8 mt-20 items-center flex-wrap">
         {data.map((item, index) => (
           <motion.div
-          variants={slideInRight}
+          variants={slideUp}
         viewport={{ once: true }}
         initial="hide"
         whileInView="show"
