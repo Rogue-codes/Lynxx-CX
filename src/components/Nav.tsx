@@ -88,7 +88,7 @@ export default function Nav() {
           <AiOutlineCaretDown size="1rem" color="#787A8D" />
         </div>
 
-        {showMenu ? <FaTimes color="#fff" size={30} onClick={()=>setShowMenu(!showMenu)}/> : <AiOutlineMenu color="#fff" size={30} onClick={()=>setShowMenu(!showMenu)}/> }
+        {showMenu ? <FaTimes color="#fff" className="lg:hidden block"  size={30} onClick={()=>setShowMenu(!showMenu)}/> : <AiOutlineMenu color="#fff" size={30} className="lg:hidden block"  onClick={()=>setShowMenu(!showMenu)}/> }
       </div>
 
       <motion.div initial={false}
